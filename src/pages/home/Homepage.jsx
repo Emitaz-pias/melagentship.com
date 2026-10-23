@@ -17,6 +17,28 @@ import { AppContext } from '../../AppContext';
 import { Link } from 'react-router-dom';
 import FormModal from '../../components/modal/FormModal'
 import PointsSlider from './PointsSlider';
+import SEO from '../../components/SEO';
+
+const HOMEPAGE_SEO = {
+  GB: {
+    title: 'MelBet Agent | E-Wallet, Mobcash & Affiliate',
+    description: 'Explore MelBet E-Wallet and Mobcash agent roles, affiliate details, application steps, and contact information.',
+    lang: 'en',
+    path: '/',
+  },
+  SA: {
+    title: 'وكيل MelBet | المحفظة الإلكترونية وMobcash',
+    description: 'تعرف على أدوار وكلاء MelBet للمحفظة الإلكترونية وMobcash، ومعلومات الشركاء، وخطوات التقديم وبيانات الاتصال.',
+    lang: 'ar-SA',
+    path: '/sa/',
+  },
+  RU: {
+    title: 'Агент MelBet | E-Wallet и Mobcash',
+    description: 'Узнайте о работе агентов MelBet E-Wallet и Mobcash, партнёрской программе, этапах подачи заявки и контактных данных.',
+    lang: 'ru',
+    path: '/ru/',
+  },
+};
 
 
 
@@ -30,7 +52,6 @@ const Homepage = () => {
   
 
 
-document.title =  translations.homepage.title
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
@@ -41,6 +62,9 @@ document.title =  translations.homepage.title
 
   return (
     <div>
+      <SEO
+        {...HOMEPAGE_SEO[language]}
+      />
       <Grid container sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap-reverse" } }}>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
@@ -80,7 +104,7 @@ document.title =  translations.homepage.title
           <Box component='img' sx={{ width: { xs: '100%', lg: '70%', md: '75%' } }} src={manStanding}></Box>
         </Grid>
         <Grid id='aboutUs' ref={aboutUsRef} padding={'0.5em'} item lg={6} md={12} xs={12} >
-          <Box className='first-screen__title' component='h1'>
+          <Box className='first-screen__title' component='h2'>
             {translations.homepage.heaing2}
           </Box>
           <Box component='p' sx={{ fontWeight: 'bolder' }}>  {translations.homepage.para2}</Box>
@@ -107,7 +131,7 @@ document.title =  translations.homepage.title
       </Grid>
       <Grid container sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap-reverse" } }}>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
-          <Box className='first-screen__title' component='h1'>
+          <Box className='first-screen__title' component='h2'>
             {translations.homepage.heaing3}
           </Box>
           <Box component='p' sx={{ fontWeight: 'bolder' }}>
@@ -131,7 +155,7 @@ document.title =  translations.homepage.title
           <Box component='img' sx={{ width: { xs: '100%', lg: '70%', md: '75%' } }} src={coinHands}></Box>
         </Grid>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
-          <Box className='first-screen__title' component='h1'>
+          <Box className='first-screen__title' component='h2'>
           {translations.homepage.heaing4}
           </Box>        
           <Box component='p'>
@@ -141,7 +165,7 @@ document.title =  translations.homepage.title
       </Grid>
       <Grid container sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap-reverse" } }}>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
-          <Box className='first-screen__title' component='h1'>
+          <Box className='first-screen__title' component='h2'>
             {translations.homepage.heaing5}
           </Box>
           <Box component='ol' sx={{'& li::marker': {color: '#FEBD02'},}} >
@@ -173,7 +197,7 @@ document.title =  translations.homepage.title
       </Grid>
       <Grid id='contact' ref={contactRef} container marginBottom={'6em'} >
         <Grid textAlign={'center'} marginTop={'1em'} item lg={6} xs={12} >
-          <h1 className='first-screen__title'>{translations.homepage.heading6}</h1>
+          <h2 className='first-screen__title'>{translations.homepage.heading6}</h2>
           <ul>
             <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex', alignItems: 'center' }}> <Box component='img' sx={{ width:{lg:'5%',xs:'10%'} }} src={website}></Box><Box component="p" sx={{ margin: '1em' }}> <u>melbet.com</u></Box></Box></li>
             {/* <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex',alignItems: 'center' }}><Box component='img' sx={{ width:{lg:'5%',xs:'10%'},height:{lg:'6%',xs:'9%'} }} src={website}></Box> <Box component="p" sx={{ margin: '1em' }}><u>melbetagents.org</u> </Box></Box> </li> */}

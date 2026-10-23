@@ -20,6 +20,7 @@ import { FaEthereum } from "react-icons/fa";
 import { FaDollarSign } from "react-icons/fa6";
 import PaymentNavbar from "./PaymentNavbar";
 import Footer from "../../components/footer/Footer";
+import SEO from "../../components/SEO";
 
 const PaymentPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -106,6 +107,13 @@ const PaymentPage = () => {
   
   return (
     <Container height="80vh">
+      <SEO
+        title="Agent Login"
+        description="Agent account login."
+        lang="en"
+        path="/agent-login"
+        noindex
+      />
       <PaymentNavbar />
       {!isLoggedIn ? (
         <Box maxWidth="sm" sx={{ mt: 5, mb: 2 }}>

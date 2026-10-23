@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -43,12 +43,14 @@ const Navbar = (props) => {
   const [,setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const [select, setSelect] = useState("GB");
   const {language,setLanguage} = useContext(AppContext);
+  const [select, setSelect] = useState(language);
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const translations = require(`../../translations/${language.toLowerCase()}.json`);
+
+  useEffect(() => setSelect(language), [language]);
 
 
   const handleOpenModal = () => {
@@ -60,7 +62,8 @@ const Navbar = (props) => {
   };
 
   const handleChangeLanguage = (newLang) => {
-    navigate(`/${newLang.toLowerCase()}/`);
+    const languagePaths = { GB: '/', RU: '/ru/', SA: '/sa/' };
+    navigate(languagePaths[newLang] || '/');
   };
   const onSelect = (code) => {
     if(code === 'SA' || code === 'RU' || code === 'GB'){
